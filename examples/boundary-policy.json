@@ -1,0 +1,51 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowedServices",
+      "Effect": "Allow",
+      "Action": [
+        "s3:*",
+        "ec2:Describe*",
+        "ec2:StartInstances",
+        "ec2:StopInstances",
+        "cloudwatch:*",
+        "logs:*",
+        "lambda:InvokeFunction",
+        "lambda:GetFunction",
+        "dynamodb:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DenyIAMActions",
+      "Effect": "Deny",
+      "Action": [
+        "iam:*",
+        "organizations:*",
+        "account:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DenyDestructiveEC2",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:TerminateInstances",
+        "ec2:DeleteVolume",
+        "ec2:DeleteSnapshot"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DenyBillingAccess",
+      "Effect": "Deny",
+      "Action": [
+        "aws-portal:*",
+        "budgets:*",
+        "ce:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

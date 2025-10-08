@@ -1,0 +1,8 @@
+# AWS IAM Access Analyzer Bootstrap - Python Dependencies
+# MIT License
+
+# AWS SDK for Python
+boto3>=1.26.0
+
+# Note: These dependencies are pre-installed in AWS CloudShell
+# If running locally, install with: pip3 install -r requirements.txt

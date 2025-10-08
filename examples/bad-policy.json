@@ -1,0 +1,41 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OverlyPermissive",
+      "Effect": "Allow",
+      "Action": "*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AdminAccess",
+      "Effect": "Allow",
+      "Action": [
+        "iam:*",
+        "sts:AssumeRole"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "NoMFARequired",
+      "Effect": "Allow",
+      "Action": [
+        "s3:DeleteBucket",
+        "s3:DeleteObject",
+        "rds:DeleteDBInstance"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "WeakCondition",
+      "Effect": "Allow",
+      "Action": "ec2:*",
+      "Resource": "*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "0.0.0.0/0"
+        }
+      }
+    }
+  ]
+}
